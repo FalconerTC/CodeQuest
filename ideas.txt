@@ -1,0 +1,63 @@
+{
+What Pattern is used as a surrogate to another object?
+
+Factory
+Proxy - A
+Adapter
+Facade
+
+Which Design Pattern fucntions like a callback
+
+Flyweight
+Facade
+Command - A
+Visitor
+
+Gang of four prefers Object Composition over:
+
+Subsitution
+Inheritance
+Abstraction
+Polymorphism
+
+CS Culture Trivia
+
+Dennis Richie developed what computer operating system at Bell labs with Ken Thompson and Douglas Mcllroy?
+
+Unix
+OSX
+DOS
+BSD
+
+Who single handedly built the first Apple computer that launched the personal computing era?
+
+Steve Wozniak
+Steve Jobs
+Bill Gates
+Linux Torvaldes
+
+
+What is the day and time of the Unix epoch?
+
+Midnight, January 1, 1970
+2AM, January 1, 1979
+2AM, January 5, 1974
+Midnight, January 1, 1979
+
+What is the name of Linux’s Mascot?
+
+Tux
+Bacon
+Francis
+Tom
+
+
+A nibble is how many bits?
+
+4
+3
+2
+5
+}
+
+
