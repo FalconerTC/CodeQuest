@@ -5,4 +5,61 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_highscore">Highscore</string>
+
+    <string name="question1">What pattern is used as a surrogate to another object?</string>
+    <string name="answer1a">Factory</string>
+    <string name="answer1b">Proxy</string>
+    <string name="answer1c">Adapter</string>
+    <string name="answer1d">Facade</string>
+    <string name="answer1">Proxy</string>
+
+    <string name="question2">What Design Pattern functions like a callback?</string>
+    <string name="answer2a">Flyweight</string>
+    <string name="answer2b">Facade</string>
+    <string name="answer2c">Command</string>
+    <string name="answer2d">Visitor</string>
+    <string name="answer2">Command</string>
+
+    <string name="question3">Gang of four prefers Object Composition over:</string>
+    <string name="answer3a">Substitution</string>
+    <string name="answer3b">Inheritance</string>
+    <string name="answer3c">Abstraction</string>
+    <string name="answer3d">Polymorphism</string>
+    <string name="answer3">TBD</string>
+
+    <string name="question4">Dennis Richie developed what computer operationg system at Bell labs with Ken Thompson and Douglas Mcllroy?</string>
+    <string name="answer4a">Unix</string>
+    <string name="answer4b">OSX</string>
+    <string name="answer4c">DOS</string>
+    <string name="answer4d">BSD</string>
+    <string name="answer4">Unix</string>
+
+    <string name="question5">Who single handedly built the first Apple computer that launched the personal computer era?</string>
+    <string name="answer5a">Steve Wozniak</string>
+    <string name="answer5b">Steve Jobs</string>
+    <string name="answer5c">Bill Gates</string>
+    <string name="answer5d">Linux Torvaldes</string>
+    <string name="answer5">Steve Wozniak</string>
+
+    <string name="question6">What is the day and time of the Unix epoch?</string>
+    <string name="answer6a">Midnight, January 1, 1970</string>
+    <string name="answer6b">2AM, January 1, 1979</string>
+    <string name="answer6c">2AM, January 5, 1974</string>
+    <string name="answer6d"> Midnight, January 1, 1979</string>
+    <string name="answer6"> Midnight, January 1, 1970</string>
+
+    <string name="question7">What is the name of Linux's Mascot?</string>
+    <string name="answer7a">Bacon</string>
+    <string name="answer7b">Francis</string>
+    <string name="answer7c">Tux</string>
+    <string name="answer7d">Tom</string>
+    <string name="answer7">Tux</string>
+
+    <string name="question8">A nibble is how many bits?</string>
+    <string name="answer8a">4</string>
+    <string name="answer8b">3</string>
+    <string name="answer8c">2</string>
+    <string name="answer8d">5</string>
+    <string name="answer8">4</string>
+
 </resources>
