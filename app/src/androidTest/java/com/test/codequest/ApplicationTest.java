@@ -1,4 +1,4 @@
-package com.example.pawsh.codequest;
+package com.test.codequest;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

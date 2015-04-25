@@ -1,4 +1,4 @@
-package com.example.pawsh.codequest;
+package com.main.codequest;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,14 +11,14 @@ public class HighscoreActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_highscore);
+        setContentView(com.main.codequest.R.layout.activity_highscore);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_highscore, menu);
+        getMenuInflater().inflate(com.main.codequest.R.menu.menu_highscore, menu);
         return true;
     }
 
@@ -30,7 +30,7 @@ public class HighscoreActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == com.main.codequest.R.id.action_settings) {
             return true;
         }
 
