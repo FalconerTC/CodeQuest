@@ -1,35 +1,29 @@
-package com.main.codequest;
+package com.codequest.main;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.content.Intent;
 import android.widget.TextView;
 
 
-public class HighscoreActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity {
+
+    public final static String EXTRA_MESSAGE = "com.codequest.main.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
-        // Create TextView
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
-
-        // Set the TextView as the activity layout
-        setContentView(textView);
+        setContentView(com.codequest.main.R.layout.activity_main);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(com.main.codequest.R.menu.menu_highscore, menu);
+        getMenuInflater().inflate(com.codequest.main.R.menu.menu_main, menu);
         return true;
     }
 
@@ -41,10 +35,18 @@ public class HighscoreActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == com.main.codequest.R.id.action_settings) {
+        if (id == com.codequest.main.R.id.action_settings) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void submitAnswer(View view) {
+        Intent intent = new Intent(this, HighscoreActivity.class);
+        TextView text = (TextView) findViewById(com.codequest.main.R.id.textView);
+        String message = text.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }

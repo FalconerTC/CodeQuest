@@ -1,4 +1,4 @@
-package com.test.codequest;
+package com.codequest.test;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
