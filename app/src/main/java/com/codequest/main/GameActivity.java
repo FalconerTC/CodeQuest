@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class GameActivity extends ActionBarActivity {
 
     public final static String EXTRA_MESSAGE = "com.codequest.main.MESSAGE";
 

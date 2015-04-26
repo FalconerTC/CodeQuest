@@ -14,7 +14,7 @@ public class HighscoreActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(GameActivity.EXTRA_MESSAGE);
 
         // Create TextView
         TextView textView = new TextView(this);

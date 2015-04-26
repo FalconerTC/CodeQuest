@@ -300,7 +300,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             if (success) {
                 if (user.userId > 0) {
                     finish();
-                    Intent game = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent game = new Intent(LoginActivity.this, GameActivity.class);
                     LoginActivity.this.startActivity(game);
                 } else {
                     DialogInterface.OnClickListener dialogClickListener =
@@ -317,7 +317,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                         Toast myToast = Toast.makeText(mContext,
                                                 R.string.updatingReport, Toast.LENGTH_SHORT);
                                         myToast.show();
-                                        Intent game = new Intent(LoginActivity.this, MainActivity.class);
+                                        Intent game = new Intent(LoginActivity.this, GameActivity.class);
                                         LoginActivity.this.startActivity(game);
                                     } finally {
                                         if (dbHandler != null)

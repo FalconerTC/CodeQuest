@@ -30,7 +30,7 @@
     <string name="answer3b">Inheritance</string>
     <string name="answer3c">Abstraction</string>
     <string name="answer3d">Polymorphism</string>
-    <string name="answer3">TBD</string>
+    <string name="answer3">Inheritance</string>
 
     <string name="question4">Dennis Richie developed what computer operating system at Bell labs with Ken Thompson and Douglas Mcllroy?</string>
     <string name="answer4a">Unix</string>
