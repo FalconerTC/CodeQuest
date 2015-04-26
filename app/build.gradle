@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'CodeQuestKey'
+            keyPassword 'p4ssw0rd'
+            storeFile file('C:/Users/Falcon/KeyStore.jks')
+            storePassword 'p4ssw0rd'
+        }
+    }
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
     defaultConfig {

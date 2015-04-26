@@ -27,7 +27,7 @@
     <string name="answer3d">Polymorphism</string>
     <string name="answer3">TBD</string>
 
-    <string name="question4">Dennis Richie developed what computer operationg system at Bell labs with Ken Thompson and Douglas Mcllroy?</string>
+    <string name="question4">Dennis Richie developed what computer operating system at Bell labs with Ken Thompson and Douglas Mcllroy?</string>
     <string name="answer4a">Unix</string>
     <string name="answer4b">OSX</string>
     <string name="answer4c">DOS</string>
@@ -48,7 +48,7 @@
     <string name="answer6d"> Midnight, January 1, 1979</string>
     <string name="answer6"> Midnight, January 1, 1970</string>
 
-    <string name="question7">What is the name of Linux's Mascot?</string>
+    <string name="question7">What is the name of Linux\'s Mascot?</string>
     <string name="answer7a">Bacon</string>
     <string name="answer7b">Francis</string>
     <string name="answer7c">Tux</string>

@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void submitAnswer(View view) {
-        Intent intent = new Intent(this, HighscoreActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         TextView text = (TextView) findViewById(com.main.codequest.R.id.textView);
         String message = text.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);

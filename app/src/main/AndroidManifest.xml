@@ -36,6 +36,11 @@
             android:name=".HighscoreActivity"
             android:label="@string/title_activity_highscore" >
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
     </application>
 
 </manifest>
