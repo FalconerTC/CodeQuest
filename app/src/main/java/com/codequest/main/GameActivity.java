@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 public class GameActivity extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE = "com.codequest.main.MESSAGE";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //setContentView(com.codequest.main.R.layout.activity_game);
@@ -74,10 +72,7 @@ public class GameActivity extends ActionBarActivity {
     }
 
     public void submitAnswer(View view) {
-        Intent intent = new Intent(this, HighscoreActivity.class);
-        TextView text = (TextView) findViewById(com.codequest.main.R.id.question);
-        String message = text.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        String selectedValue = ((Button)view).getText().toString();
+        GameController.getGameController(GameActivity.this).update(selectedValue);
     }
 }

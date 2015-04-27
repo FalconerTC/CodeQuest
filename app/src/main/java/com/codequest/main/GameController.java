@@ -5,12 +5,13 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  * Created by Falcon on 4/26/2015.
  */
 public class GameController {
+
+    public final static String EXTRA_MESSAGE = "com.codequest.main.MESSAGE";
 
     public final static String EXTRA_QUESTION = "com.codequest.main.QUESTION";
     public final static String EXTRA_ANSWER1 = "com.codequest.main.ANSWER1";
@@ -38,7 +39,7 @@ public class GameController {
     }
 
     private Integer[] generateQuestionOrder() {
-        ArrayList<Integer> list = new ArrayList<Integer>(totalQuestions);
+        ArrayList<Integer> list = new ArrayList<>(totalQuestions);
         for (int i = 1; i <= totalQuestions; i++) {
             list.add(i);
         }
@@ -66,6 +67,24 @@ public class GameController {
 
     public void startGame() {
         game = new Intent(original, GameActivity.class);
+        startNextQuestion();
+    }
+
+    //Interpret and answer and progress the game
+    public void update(String answer) {
+        currentQuestionIndex++;
+        // Check answer
+        if (answer.equals(currentQuestion.correct_answer))
+            correctAnswers++;
+        //Progress game
+        if (currentQuestionIndex >= totalQuestions) {
+            endGame();
+        } else {
+            startNextQuestion();
+        }
+    }
+
+    public void startNextQuestion() {
         currentQuestion = generateQuestion();
         game.putExtra(EXTRA_QUESTION, currentQuestion.question);
         game.putExtra(EXTRA_ANSWER1, currentQuestion.answer1);
@@ -76,7 +95,14 @@ public class GameController {
         original.startActivity(game);
     }
 
+    // Proceed to highscore activity
+    public void endGame() {
+        Intent intent = new Intent(original, HighscoreActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, ("Correct answers: " + correctAnswers));
+        original.startActivity(intent);
 
+
+    }
 
 
 }
