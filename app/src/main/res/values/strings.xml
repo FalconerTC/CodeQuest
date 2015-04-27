@@ -14,62 +14,67 @@
     <string-array name="questions">
         <item>What pattern is used as a surrogate to another object?</item>
         <item>What Design Pattern functions like a callback?</item>
+        <item>Gang of four prefers Object Composition over:</item>
+        <item>Dennis Richie developed what computer operating system at Bell labs with Ken Thompson and Douglas Mcllroy?</item>
+        <item>Who single handedly built the first Apple computer that launched the personal computer era?</item>
+        <item>What is the day and time of the Unix epoch?</item>
+        <item>What is the name of Linux\'s Mascot?</item>
+        <item>A nibble is how many bits?</item>
+    </string-array>
+    
+    <string-array name="answera">
+        <item>Factory</item>
+        <item>Flyweight</item>
+        <item>Substitution</item>
+        <item>Unix</item>
+        <item>Steve Wozniak</item>
+        <item>Midnight, January 1, 1970</item>
+        <item>Bacon</item>
+        <item>4</item>
     </string-array>
 
-    <string name="question1">What pattern is used as a surrogate to another object?</string>
-    <string name="answer1a">Factory</string>
-    <string name="answer1b">Proxy</string>
-    <string name="answer1c">Adapter</string>
-    <string name="answer1d">Facade</string>
-    <string name="answer1">Proxy</string>
+    <string-array name="answerb">
+        <item>Proxy</item>
+        <item>Facade</item>
+        <item>Inheritance</item>
+        <item>OSX</item>
+        <item>Steve Jobs</item>
+        <item>2AM, January 1, 1979</item>
+        <item>Francis</item>
+        <item>3</item>
+    </string-array>
 
-    <string name="question2">What Design Pattern functions like a callback?</string>
-    <string name="answer2a">Flyweight</string>
-    <string name="answer2b">Facade</string>
-    <string name="answer2c">Command</string>
-    <string name="answer2d">Visitor</string>
-    <string name="answer2">Command</string>
+    <string-array name="answerc">
+        <item>Adapter</item>
+        <item>Command</item>
+        <item>Abstraction</item>
+        <item>DOS</item>
+        <item>Bill Gates</item>
+        <item>2AM, January 5, 1974</item>
+        <item>Tux</item>
+        <item>2</item>
+    </string-array>
 
-    <string name="question3">Gang of four prefers Object Composition over:</string>
-    <string name="answer3a">Substitution</string>
-    <string name="answer3b">Inheritance</string>
-    <string name="answer3c">Abstraction</string>
-    <string name="answer3d">Polymorphism</string>
-    <string name="answer3">Inheritance</string>
+    <string-array name="answerd">
+        <item>Facade</item>
+        <item>Visitor</item>
+        <item>Polymorphism</item>
+        <item>BSD</item>
+        <item>Linux Torvaldes</item>
+        <item>Midnight, January 1, 1970</item>
+        <item>Tom</item>
+        <item>5</item>
+    </string-array>
 
-    <string name="question4">Dennis Richie developed what computer operating system at Bell labs with Ken Thompson and Douglas Mcllroy?</string>
-    <string name="answer4a">Unix</string>
-    <string name="answer4b">OSX</string>
-    <string name="answer4c">DOS</string>
-    <string name="answer4d">BSD</string>
-    <string name="answer4">Unix</string>
-
-    <string name="question5">Who single handedly built the first Apple computer that launched the personal computer era?</string>
-    <string name="answer5a">Steve Wozniak</string>
-    <string name="answer5b">Steve Jobs</string>
-    <string name="answer5c">Bill Gates</string>
-    <string name="answer5d">Linux Torvaldes</string>
-    <string name="answer5">Steve Wozniak</string>
-
-    <string name="question6">What is the day and time of the Unix epoch?</string>
-    <string name="answer6a">Midnight, January 1, 1970</string>
-    <string name="answer6b">2AM, January 1, 1979</string>
-    <string name="answer6c">2AM, January 5, 1974</string>
-    <string name="answer6d"> Midnight, January 1, 1979</string>
-    <string name="answer6"> Midnight, January 1, 1970</string>
-
-    <string name="question7">What is the name of Linux\'s Mascot?</string>
-    <string name="answer7a">Bacon</string>
-    <string name="answer7b">Francis</string>
-    <string name="answer7c">Tux</string>
-    <string name="answer7d">Tom</string>
-    <string name="answer7">Tux</string>
-
-    <string name="question8">A nibble is how many bits?</string>
-    <string name="answer8a">4</string>
-    <string name="answer8b">3</string>
-    <string name="answer8c">2</string>
-    <string name="answer8d">5</string>
-    <string name="answer8">4</string>
+    <string-array name="answers">
+        <item>Proxy</item>
+        <item>Command</item>
+        <item>Inheritance</item>
+        <item>Unix</item>
+        <item>Steve Wozniak</item>
+        <item>Midnight, January 1, 1970</item>
+        <item>Tux</item>
+        <item>4</item>
+    </string-array>
 
 </resources>
