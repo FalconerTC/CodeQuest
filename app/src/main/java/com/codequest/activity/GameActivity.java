@@ -76,6 +76,6 @@ public class GameActivity extends ActionBarActivity {
 
     public void submitAnswer(View view) {
         String selectedValue = ((Button)view).getText().toString();
-        GameController.getGameController(GameActivity.this).update(selectedValue);
+        GameController.getGameController().update(selectedValue);
     }
 }

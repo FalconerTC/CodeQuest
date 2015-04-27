@@ -5,6 +5,8 @@ import android.content.Intent;
 
 import com.codequest.activity.GameActivity;
 import com.codequest.activity.HighscoreActivity;
+import com.codequest.utils.DBHandler;
+import com.codequest.utils.Highscore;
 import com.codequest.utils.User;
 
 import java.util.ArrayList;
@@ -44,6 +46,16 @@ public class GameController {
         questionOrder = generateQuestionOrder();
     }
 
+    public static GameController getGameController(Activity original, User user) {
+        if (controller == null)
+            controller = new GameController(original, user);
+        return controller;
+    }
+
+    public static GameController getGameController() {
+        return controller;
+    }
+
     private Integer[] generateQuestionOrder() {
         ArrayList<Integer> list = new ArrayList<>(totalQuestions);
         for (int i = 1; i <= totalQuestions; i++) {
@@ -51,12 +63,6 @@ public class GameController {
         }
         Collections.shuffle(list);
         return list.toArray(new Integer[totalQuestions]);
-    }
-
-    public static GameController getGameController(Activity original, User user) {
-        if (controller == null)
-            controller = new GameController(original, user);
-        return controller;
     }
 
     // Generate the current question
@@ -101,13 +107,23 @@ public class GameController {
         original.startActivity(game);
     }
 
-    // Proceed to highscore activity
+    // Update highscores and end game
     public void endGame() {
+        DBHandler dbhandler = DBHandler.getDBHandler(original);
+        int originalScore = dbhandler.getHighscore(user).score;
+        if (correctAnswers > originalScore) {
+            dbhandler.insertHighscore(user, correctAnswers);
+        }
+        loadHighscores();
+    }
+
+    // Set up to highscore activity
+    private void loadHighscores() {
         Intent intent = new Intent(original, HighscoreActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, ("Correct answers: " + correctAnswers));
+        DBHandler dbhandler = DBHandler.getDBHandler(original);
+        Highscore[] highscores = dbhandler.getAllHighscores();
+        intent.putExtra(EXTRA_MESSAGE, ("Correct answers: " + highscores.length));
         original.startActivity(intent);
-
-
     }
 
 

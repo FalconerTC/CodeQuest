@@ -7,16 +7,25 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * Created by Falcon on 4/25/2015.
  * Derived from http://stackoverflow.com/questions/22209046/fix-android-studio-login-activity-template-generated-activity
  */
 public class DBHandler extends SQLiteOpenHelper{
 
-    private final static int DB_VERSION = 10;
+    private final static int DB_VERSION = 12;
+    private static DBHandler handler;
 
-    public DBHandler(Context context) {
+    private DBHandler(Context context) {
         super(context, "CodeQuest.db", null, DB_VERSION);
+    }
+
+    public static DBHandler getDBHandler(Context context) {
+        if (handler == null)
+            handler = new DBHandler(context);
+        return handler;
     }
 
     @Override
@@ -25,7 +34,7 @@ public class DBHandler extends SQLiteOpenHelper{
         String query = "CREATE TABLE userdata (userId Integer primary key autoincrement, "+
                 " login text, password text)";
         db.execSQL(query);
-        query = "CREATE TABLE highscores (userId Integer, password text)";
+        query = "CREATE TABLE highscores (userId Integer, score Integer)";
         db.execSQL(query);
     }
 
@@ -46,29 +55,19 @@ public class DBHandler extends SQLiteOpenHelper{
     public User insertUser(User queryValues) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("login", DatabaseUtils.sqlEscapeString(queryValues.login));
-        values.put("password", DatabaseUtils.sqlEscapeString(queryValues.password));
+        values.put("login", queryValues.login);
+        values.put("password", queryValues.password);
         queryValues.userId = db.insert("userdata", null, values);
         db.close();
         return queryValues;
     }
 
-    public int updateUserPassword(User queryValues) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("login", queryValues.login);
-        values.put("password", queryValues.password);
-        queryValues.userId = db.insert("userdata", null, values);
-        db.close();
-        return db.update("userdata", values, "userId = ?", new String[] {String.valueOf(queryValues.userId)});
-    }
-
     public User getUser (String login) {
-        String query = "select userId, password from userdata where " +
+        String query = "SELECT userId, password from userdata WHERE " +
             "login = '"+login+"'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        long userId = 0;
+        long userId = -1;
         String password = "";
         if (cursor.moveToFirst()) {
             do {
@@ -91,7 +90,7 @@ public class DBHandler extends SQLiteOpenHelper{
     // Retrieve highscore information
     public Highscore getHighscore(User user) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "Select score FROM highscores WHERE " +
+        String query = "SELECT score FROM highscores WHERE " +
                 "userId = '"+user.userId+"'";
         Cursor cursor = db.rawQuery(query, null);
         int score = 0;
@@ -103,5 +102,19 @@ public class DBHandler extends SQLiteOpenHelper{
         return new Highscore(user.login, score);
     }
 
+    // Fetch all highscores in the table
+    public Highscore[] getAllHighscores() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Highscore> list = new ArrayList<>();
+        String query = "SELECT login, score FROM highscores INNER JOIN userdata ON " +
+                "userdata.userId=highscores.userId ORDER BY score ASC";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(new Highscore(cursor.getString(0), cursor.getInt(1)));
+            } while (cursor.moveToNext());
+        }
+        return list.toArray(new Highscore[list.size()]);
+    }
 
 }

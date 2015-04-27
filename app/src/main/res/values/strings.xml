@@ -7,7 +7,7 @@
     <string name="title_activity_highscore">Highscore</string>
 
     <string name="updatingReport">Updating...</string>
-    <string name="confirm_registration">Email not found. Do you want to create this user?</string>
+    <string name="confirm_registration">Login not found. Do you want to create this user?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
 

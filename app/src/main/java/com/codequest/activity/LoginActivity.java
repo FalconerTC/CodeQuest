@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,6 +35,7 @@ import java.util.List;
 
 import com.codequest.main.GameController;
 import com.codequest.main.R;
+import com.codequest.utils.Highscore;
 import com.codequest.utils.User;
 import com.codequest.utils.DBHandler;
 
@@ -65,6 +67,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LoginActivity.class.getSimpleName(), "HELLO");
         setContentView(R.layout.activity_login);
 
         // Set up the login form.
@@ -135,7 +138,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            mEmailView.setError(getString(R.string.error_invalid_login));
             focusView = mEmailView;
             cancel = true;
         }
@@ -155,12 +158,13 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        //return email.contains("@");
+        return true;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() >= 4;
     }
 
     /**
@@ -259,12 +263,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mLogin;
         private final String mPassword;
         private final Context mContext;
 
-        UserLoginTask(String email, String password, Context context) {
-            mEmail = email;
+        UserLoginTask(String login, String password, Context context) {
+            mLogin = login;
             mPassword = password;
             mContext = context;
         }
@@ -274,10 +278,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             DBHandler dbHandler = null;
             try {
                 // Simulate network access.
-                dbHandler = new DBHandler(mContext);
-                user = dbHandler.getUser(mEmail);
-
-                if (user.userId > 0) {
+                dbHandler = DBHandler.getDBHandler(mContext);
+                user = dbHandler.getUser(mLogin);
+                Log.d(LoginActivity.class.getSimpleName(), user.login+" "+user.userId);
+                if (user.userId > -1) {
                     // Validate user
                     if (user.password.equals(mPassword))
                         return true;
@@ -299,7 +303,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
 
             if (success) {
-                if (user.userId > 0) {
+                if (user.userId > -1) {
                     finish();
                     GameController.getGameController(LoginActivity.this, user).startGame();
                 } else {
@@ -312,8 +316,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                     DBHandler dbHandler = null;
                                     try {
                                         finish();
-                                        dbHandler = new DBHandler(mContext);
+                                        dbHandler = DBHandler.getDBHandler(mContext);
                                         user = dbHandler.insertUser(user);
+
                                         Toast myToast = Toast.makeText(mContext,
                                                 R.string.updatingReport, Toast.LENGTH_SHORT);
                                         myToast.show();
