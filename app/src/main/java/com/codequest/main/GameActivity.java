@@ -15,8 +15,17 @@ public class GameActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //setContentView(com.codequest.main.R.layout.activity_game);
+
         super.onCreate(savedInstanceState);
-        setContentView(com.codequest.main.R.layout.activity_main);
+        setContentView(com.codequest.main.R.layout.activity_game);
+
+        Intent intent = getIntent();
+        String question_text = intent.getStringExtra(GameController.EXTRA_QUESTION);
+
+        // Create TextView
+        TextView question = (TextView)findViewById(R.id.question);
+        question.setText(question_text);
     }
 
 

@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/question1"
-        android:id="@+id/textView"
+        android:hint="@string/default_question"
+        android:id="@+id/question"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp" />
@@ -21,38 +21,41 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/answer1a"
+        android:hint="@string/default_answer"
         android:id="@+id/button1"
         android:layout_marginTop="36dp"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/question"
         android:layout_centerHorizontal="true"
         android:onClick="submitAnswer"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/answer1b"
+        android:hint="@string/default_answer"
         android:id="@+id/button2"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="submitAnswer"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/answer1c"
+        android:hint="@string/default_answer"
         android:id="@+id/button3"
         android:layout_below="@+id/button2"
         android:layout_marginTop="36dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="submitAnswer"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/answer1d"
+        android:hint="@string/default_answer"
         android:id="@+id/button4"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/button3"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="submitAnswer"/>
 
 </RelativeLayout>
