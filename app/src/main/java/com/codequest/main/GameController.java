@@ -3,6 +3,10 @@ package com.codequest.main;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.codequest.activity.GameActivity;
+import com.codequest.activity.HighscoreActivity;
+import com.codequest.utils.User;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -21,6 +25,7 @@ public class GameController {
     public final static int DEFAULT_QUESTION_COUNT = 5;
 
     private static GameController controller;
+    private User user;
     private Activity original;
     private Intent game;
     private Integer[] questionOrder;
@@ -30,8 +35,9 @@ public class GameController {
     private int currentQuestionIndex;
     private Question currentQuestion;
 
-    private GameController(Activity original) {
+    private GameController(Activity original, User user) {
         this.original = original;
+        this.user = user;
         this.currentQuestionIndex = 0;
         this.correctAnswers = 0;
         this.totalQuestions = DEFAULT_QUESTION_COUNT;
@@ -47,9 +53,9 @@ public class GameController {
         return list.toArray(new Integer[totalQuestions]);
     }
 
-    public static GameController getGameController(Activity original) {
+    public static GameController getGameController(Activity original, User user) {
         if (controller == null)
-            controller = new GameController(original);
+            controller = new GameController(original, user);
         return controller;
     }
 

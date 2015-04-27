@@ -1,4 +1,4 @@
-package com.codequest.main;
+package com.codequest.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -9,7 +9,6 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -33,6 +32,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.codequest.main.GameController;
+import com.codequest.main.R;
 import com.codequest.utils.User;
 import com.codequest.utils.DBHandler;
 
@@ -300,7 +301,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             if (success) {
                 if (user.userId > 0) {
                     finish();
-                    GameController.getGameController(LoginActivity.this).startGame();
+                    GameController.getGameController(LoginActivity.this, user).startGame();
                 } else {
                     DialogInterface.OnClickListener dialogClickListener =
                             new DialogInterface.OnClickListener() {
@@ -316,7 +317,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                         Toast myToast = Toast.makeText(mContext,
                                                 R.string.updatingReport, Toast.LENGTH_SHORT);
                                         myToast.show();
-                                        GameController.getGameController(LoginActivity.this).startGame();
+                                        GameController.getGameController(LoginActivity.this, user).startGame();
                                     } finally {
                                         if (dbHandler != null)
                                             dbHandler.close();

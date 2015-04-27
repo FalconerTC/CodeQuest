@@ -1,4 +1,4 @@
-package com.codequest.main;
+package com.codequest.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.codequest.main.GameController;
+import com.codequest.main.R;
 
 
 public class GameActivity extends ActionBarActivity {

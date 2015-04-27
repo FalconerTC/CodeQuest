@@ -20,17 +20,17 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".GameActivity"
+            android:name="com.codequest.activity.GameActivity"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name="com.codequest.main.HighscoreActivity"
+            android:name="com.codequest.activity.HighscoreActivity"
             android:label="@string/title_activity_highscore" >
         </activity>
 
         <activity
-            android:name="com.codequest.main.LoginActivity"
+            android:name="com.codequest.activity.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
 
