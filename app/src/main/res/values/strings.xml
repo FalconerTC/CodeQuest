@@ -22,7 +22,7 @@
         <item>A nibble is how many bits?</item>
     </string-array>
     
-    <string-array name="answera">
+    <string-array name="answerA">
         <item>Factory</item>
         <item>Flyweight</item>
         <item>Substitution</item>
@@ -33,7 +33,7 @@
         <item>4</item>
     </string-array>
 
-    <string-array name="answerb">
+    <string-array name="answerB">
         <item>Proxy</item>
         <item>Facade</item>
         <item>Inheritance</item>
@@ -44,7 +44,7 @@
         <item>3</item>
     </string-array>
 
-    <string-array name="answerc">
+    <string-array name="answerC">
         <item>Adapter</item>
         <item>Command</item>
         <item>Abstraction</item>
@@ -55,7 +55,7 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="answerd">
+    <string-array name="answerD">
         <item>Facade</item>
         <item>Visitor</item>
         <item>Polymorphism</item>
@@ -66,7 +66,7 @@
         <item>5</item>
     </string-array>
 
-    <string-array name="answers">
+    <string-array name="correctAnswers">
         <item>Proxy</item>
         <item>Command</item>
         <item>Inheritance</item>

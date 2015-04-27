@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -20,12 +21,33 @@ public class GameActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.codequest.main.R.layout.activity_game);
 
+        // Fetch extra paramaters
         Intent intent = getIntent();
         String question_text = intent.getStringExtra(GameController.EXTRA_QUESTION);
+        String answer1_text = intent.getStringExtra(GameController.EXTRA_ANSWER1);
+        String answer2_text = intent.getStringExtra(GameController.EXTRA_ANSWER2);
+        String answer3_text = intent.getStringExtra(GameController.EXTRA_ANSWER3);
+        String answer4_text = intent.getStringExtra(GameController.EXTRA_ANSWER4);
 
-        // Create TextView
+        // Set question text
         TextView question = (TextView)findViewById(R.id.question);
         question.setText(question_text);
+
+        // Set answer1 text
+        Button answer1 = (Button)findViewById(R.id.button1);
+        answer1.setText(answer1_text);
+
+        // Set answer2 text
+        Button answer2 = (Button)findViewById(R.id.button2);
+        answer2.setText(answer2_text);
+
+        // Set answer3 text
+        Button answer3 = (Button)findViewById(R.id.button3);
+        answer3.setText(answer3_text);
+
+        // Set answer4 text
+        Button answer4 = (Button)findViewById(R.id.button4);
+        answer4.setText(answer4_text);
     }
 
 
@@ -53,7 +75,7 @@ public class GameActivity extends ActionBarActivity {
 
     public void submitAnswer(View view) {
         Intent intent = new Intent(this, HighscoreActivity.class);
-        TextView text = (TextView) findViewById(com.codequest.main.R.id.textView);
+        TextView text = (TextView) findViewById(com.codequest.main.R.id.question);
         String message = text.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
