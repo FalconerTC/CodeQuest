@@ -35,13 +35,12 @@ import java.util.List;
 
 import com.codequest.main.GameController;
 import com.codequest.main.R;
-import com.codequest.utils.Highscore;
 import com.codequest.utils.User;
 import com.codequest.utils.DBHandler;
 
 
 /**
- * A login screen that offers login via email/password.
+ * A login screen that offers login via login/password.
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
@@ -67,7 +66,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(LoginActivity.class.getSimpleName(), "HELLO");
         setContentView(R.layout.activity_login);
 
         // Set up the login form.
@@ -118,7 +116,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        String login = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -133,11 +131,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(login)) {
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
+        } else if (!isLoginValid(login)) {
             mEmailView.setError(getString(R.string.error_invalid_login));
             focusView = mEmailView;
             cancel = true;
@@ -151,14 +149,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password, this);
+            mAuthTask = new UserLoginTask(login, password, this);
             mAuthTask.execute((Void) null);
         }
     }
 
-    private boolean isEmailValid(String email) {
+    private boolean isLoginValid(String login) {
         //TODO: Replace this with your own logic
-        //return email.contains("@");
+        //return login.contains("@");
         return true;
     }
 
@@ -280,7 +278,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 // Simulate network access.
                 dbHandler = DBHandler.getDBHandler(mContext);
                 user = dbHandler.getUser(mLogin);
-                Log.d(LoginActivity.class.getSimpleName(), user.login+" "+user.userId);
                 if (user.userId > -1) {
                     // Validate user
                     if (user.password.equals(mPassword))

@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.codequest.activity.GameActivity;
 import com.codequest.activity.HighscoreActivity;
 import com.codequest.utils.DBHandler;
-import com.codequest.utils.Highscore;
 import com.codequest.utils.User;
 
 import java.util.ArrayList;
@@ -16,8 +15,6 @@ import java.util.Collections;
  * Created by Falcon on 4/26/2015.
  */
 public class GameController {
-
-    public final static String EXTRA_MESSAGE = "com.codequest.main.MESSAGE";
 
     public final static String EXTRA_QUESTION = "com.codequest.main.QUESTION";
     public final static String EXTRA_ANSWER1 = "com.codequest.main.ANSWER1";
@@ -118,11 +115,9 @@ public class GameController {
     }
 
     // Set up to highscore activity
-    private void loadHighscores() {
+    public void loadHighscores() {
         Intent intent = new Intent(original, HighscoreActivity.class);
-        DBHandler dbhandler = DBHandler.getDBHandler(original);
-        Highscore[] highscores = dbhandler.getAllHighscores();
-        intent.putExtra(EXTRA_MESSAGE, ("Correct answers: " + highscores.length));
+        //intent.putExtra(EXTRA_MESSAGE, ("Correct answers: " + highscores.length));
         original.startActivity(intent);
     }
 

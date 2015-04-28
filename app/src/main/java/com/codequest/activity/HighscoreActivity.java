@@ -1,13 +1,20 @@
 package com.codequest.activity;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.HorizontalScrollView;
+import android.widget.ScrollView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.codequest.main.GameController;
+import com.codequest.main.R;
+import com.codequest.utils.DBHandler;
+import com.codequest.utils.Highscore;
 
 
 public class HighscoreActivity extends ActionBarActivity {
@@ -15,16 +22,41 @@ public class HighscoreActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(GameController.EXTRA_MESSAGE);
+        setContentView(R.layout.activity_highscore);
 
-        // Create TextView
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
+        generateTable();
+    }
 
-        // Set the TextView as the activity layout
-        setContentView(textView);
+    //Create and add highscore table
+    public void generateTable() {
+        Highscore[] highscores = DBHandler.getDBHandler(this).getAllHighscores();
+        ScrollView sv = new ScrollView(this);
+        HorizontalScrollView hsv = new HorizontalScrollView(this);
+        TableLayout table = new TableLayout(this);
+
+        for (int i = 0; i < highscores.length; i++) {
+            Log.d(HighscoreActivity.class.getSimpleName(), highscores[0].login + " " + highscores[0].score);
+            TableRow row = new TableRow(this);
+
+            TextView user = new TextView(this);
+            user.setTextSize(32);
+            user.setGravity(Gravity.LEFT);
+            user.setText(highscores[i].login+"  ");
+
+            TextView score = new TextView(this);
+            score.setTextSize(32);
+            score.setGravity(Gravity.RIGHT);
+            score.setText(Integer.toString(highscores[i].score));
+
+            row.addView(user);
+            row.addView(score);
+
+            table.addView(row);
+        }
+
+        hsv.addView(table);
+        sv.addView(hsv);
+        setContentView(sv);
     }
 
 

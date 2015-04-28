@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class DBHandler extends SQLiteOpenHelper{
 
-    private final static int DB_VERSION = 12;
+    private final static int DB_VERSION = 13;
     private static DBHandler handler;
 
     private DBHandler(Context context) {
@@ -107,7 +107,7 @@ public class DBHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Highscore> list = new ArrayList<>();
         String query = "SELECT login, score FROM highscores INNER JOIN userdata ON " +
-                "userdata.userId=highscores.userId ORDER BY score ASC";
+                "userdata.userId=highscores.userId ORDER BY score DESC";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             do {
